@@ -5,7 +5,7 @@ import * as Yup from "yup";
 import styles from "./Signup.module.css";
 import ErrorMsg from "../../utils/ErrorMsg/ErrorMsg";
 import { Register } from "../../api/UserApi/UserApi";
-import { StudentContext } from "../../context/TaskProvider";
+import { StudentContext } from "../../context/StudentAdminContext";
 
 const Signup = () => {
   const [message, setMessage] = useState("");

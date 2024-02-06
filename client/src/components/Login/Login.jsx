@@ -5,7 +5,7 @@ import * as Yup from "yup";
 import styles from "./Login.module.css";
 import ErrorMsg from "../../utils/ErrorMsg/ErrorMsg";
 import { LoginUser } from "../../api/UserApi/UserApi";
-import { StudentContext } from "../../context/TaskProvider";
+import { StudentContext } from "../../context/StudentAdminContext";
 
 const Login = () => {
   const navigate = useNavigate();

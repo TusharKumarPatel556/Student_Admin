@@ -20,7 +20,7 @@ const Header = () => {
     <nav className="navbar navbar-expand-lg bg-dark mb-3">
       <div className="container-fluid">
         <a className="navbar-brand text-light" href="#">
-          Task Manager
+          Student Admin
         </a>
         <button
           className="navbar-toggler"

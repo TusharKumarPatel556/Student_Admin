@@ -4,9 +4,11 @@ import * as Yup from "yup";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import ErrorMsg from "../../../utils/ErrorMsg/ErrorMsg";
 import { StudentContext } from "../../../context/StudentAdminContext";
+import { addStudent } from "../../../api/StudentApi/StudentApi";
 
 const AddStudent = () => {
   const { taskadded, setTaskadded } = useContext(StudentContext);
+  const [message, setMessage] = useState("");
 
   const InitialValues = {
     name: "",
@@ -23,27 +25,34 @@ const AddStudent = () => {
   });
 
   const OnSubmit = async (values, { resetForm }) => {
-    console.log(values);
-    const response = await editTask({ values, id });
+    const response = await addStudent(values);
+
     setMessage(response);
+
+    setTimeout(() => {
+      setMessage("");
+    }, 3000);
     setTimeout(() => {
       setTaskadded((prev) => !prev);
-      setMessage("");
     }, 1000);
     resetForm();
   };
 
   return (
     <>
-      <button
-        style={{ width: "400px" }}
-        type="button"
-        className="btn btn-success rounded-0 btn-lg"
-        data-bs-toggle="modal"
-        data-bs-target="#staticBackdrop"
-      >
-        Add Student
-      </button>
+      <div>
+        <button
+          style={{ width: "400px" }}
+          type="button"
+          className="btn btn-success rounded-0 btn-lg"
+          data-bs-toggle="modal"
+          data-bs-target="#staticBackdrop"
+        >
+          Add Student
+        </button>
+
+        <h2 className="mt-2 p-3 text-center text-danger">{message}</h2>
+      </div>
 
       <div
         className="modal fade"

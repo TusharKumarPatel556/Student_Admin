@@ -1,5 +1,6 @@
 import React from "react";
 import AddStudent from "../../components/Student/AddStudent/AddStudent";
+import ShowStudent from "../../components/Student/ShowStudent/ShowStudent";
 import styles from "./HomePage.module.css";
 
 const HomePage = () => {
@@ -13,6 +14,9 @@ const HomePage = () => {
           Student List
         </h3>
       </div>
+      <>
+        <ShowStudent />
+      </>
     </>
   );
 };

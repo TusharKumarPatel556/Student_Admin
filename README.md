@@ -10,7 +10,7 @@ technologiees used
 Step-1 ( INSTALLING DATABASE CONFIGURATION)--------------------- - Install PostgreSQL in to the system . - Setup the Environment variable path. - Open Command Prompt and run command "psql -U postgres" . Here postgres is the super admin name give your super admin name if already installed. - Then it will ask for password Give the Password that you entered while installing postgres.
 
 Step-2 (CREATING DATABASE AND TABLE)-----------------
--All these commands are available inside folder modelin queries.sql file. path to the folder todo_list-->server-->model-->queries.sql - Run Command "CREATE DATABASE todolist;". To create the Database. - Run command "\c todolist;" Enter in to the database .
+-All these commands are available inside folder modelin queries.sql file. path to the folder Student_Admin-->server-->model-->queries.sql - Run Command "CREATE DATABASE student_admin;". To create the Database. - Run command "\c student_admin;" Enter in to the database .
 
 
                   -Then create User table using Below mentioned query
@@ -40,15 +40,16 @@ Step-2 (CREATING DATABASE AND TABLE)-----------------
 
 Step-3 (CONNECTING NODEJS TO POSTGRESSQL DATABASE)-----------------
 -Goto folder "model" in server and Open "dbcon.js" file .You will be able to see the code mentioned below.
-const Pool = require("pg").Pool;
-const pool = new Pool({
-user: "postgres",
-password: "Tushar@123",
-host: "localhost",
-port: "5432",
-database: "todolist",
-});
-module.exports = pool;
+
+                const Pool = require("pg").Pool;
+                const pool = new Pool({
+                user: "postgres",
+                password: "Tushar@123",
+                host: "localhost",
+                port: "5432",
+                database: "student_admin",
+                });
+                module.exports = pool;
 -In this Code Change The "user" to YOUR "super admin" User name that you have given while installing postgresql.
 And "password" YOUR password that you have given while installing postgres.
 And YOUR Port number In which Your Postgres Server Is running.
@@ -61,9 +62,8 @@ and hit Enter
 -Then Run ">npm run dev " command to start the server.
 -If ".env" file is absent in server folder then create a .env file add add the below code
 PORT=5000
-JWT_SECRET="Merge-Alpha6578"
+JWT_SECRET="SecreteEncryptionKeybcrypt"
 -and then restart the server.
--All task related apis are protected Apis so user mest be logged in before accessing those features. -
 
 (-------------------------------CLIENT SITE CONFIGURATIONS------------------------------------)
 
@@ -75,7 +75,7 @@ and hit Enter
 VITE_REACT_APP_BASE_URL= http://localhost:5000
 -and then restart the server.
 
-(-------------------------------HOW TO NAVIGATE ------------------------------------)
+
 -ON RUNNING YOU WILL LAND ON THE LOGIN PAGE .
 -YOU WILL HAVE TO CREATE AN ACCOUNT SO FIRST NAVIGATE TO SignUp PAGE .
 -ON SUCCESFUL SIGNUP YOU WILL BE NAVIGATED TO THE HOME PAGE WHERE YOU CAN ADD TASK AND SEE THE LIST OF TASKS
